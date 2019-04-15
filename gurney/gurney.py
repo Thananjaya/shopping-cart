@@ -23,7 +23,7 @@ class Gurney(object):
 		gurney = self.gurney.copy()
 		for product in products:
 			gurney[str(product.id)]['product'] = product
-		for items in gurney.values():
+		for item in gurney.values():
 			item['price'] = Decimal(item['price'])
 			item['total_price'] = item['price'] * item['quantity']
 			yield item

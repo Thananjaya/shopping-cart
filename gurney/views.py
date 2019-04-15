@@ -23,5 +23,7 @@ def remove_product_from_gurney(request, product_id):
 
 def gurney_detail(request):
 	gurney = Gurney(request)
+	for item in gurney:
+		item['update_quantity_form'] = AddProductToGurneyForm(initial={'quantity': item['quantity'], 'update': True})
 	return render(request, 'gurney/gurney_detail.html', {'gurney': gurney})
 
