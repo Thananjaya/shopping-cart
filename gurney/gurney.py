@@ -2,7 +2,7 @@ from decimal import Decimal
 from django.conf import settings
 from shop.models import Product
 
-class Guryney(object):
+class Gurney(object):
 
 	def __init__(self, request):
 		"""

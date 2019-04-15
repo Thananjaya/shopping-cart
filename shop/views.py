@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
+from gurney.forms import AddProductToGurneyForm
 
 def products_index(request, c_slug=None):
 	category = None
@@ -13,6 +14,7 @@ def products_index(request, c_slug=None):
 def product_detail(request, id, slug):
 	product = get_object_or_404(Product, available= True, id = id, slug = slug)
 	image_class = ''
+	add_product_to_gurney_form = AddProductToGurneyForm();
 	if product.image:
 		image_class= "product-detail-image"
-	return render(request, 'products/detail.html', {"product": product, "image": image_class})
+	return render(request, 'products/detail.html', {"product": product, 'add_product_to_gurney_form': add_product_to_gurney_form , "image": image_class})

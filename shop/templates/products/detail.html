@@ -15,9 +15,12 @@
 	<hr/>
 	<div class="jumbotron">
 	  <h3 class="display-4">{{ product }}</h1>
-	  <p class="lead">{{product.description}}</p>
+	  <p class="lead">{{product.description}} <span class="float-right text-muted">{{product.price}} INR</span></p>
 	  <hr class="my-2">
-	  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-	  <a class="btn btn-secondary btn-md" href="#" role="button">Add to Cart</a>
+	  <form action="{% url 'gurney:gurney_add'  product.id %}" method="post">
+	  	{{add_product_to_gurney_form}}
+	  	{% csrf_token %}
+	  	<button class="btn btn-secondary btn-md" href="#" type="submit">Add to Cart</button>
+	  </form>
 	</div>
 {% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+	Gurney Details
+{% endblock %}
+
+{% block content %}
+	{% if gurney %}
+		<h3> Items in your Gurney</h3>
+		<hr/>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">Image</th>
+		      <th scope="col">Product</th>
+		      <th scope="col">Quantity</th>
+		      <th scope="col">Unit Price</th>
+		      <th scope="col">Price</th>
+		      <th scope="col">Remove</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for item in gurney %}
+		  		{% with product=item.product %}
+				    <tr>
+				      <td>
+				      	<a href="{{ product.get_absolute_url }}">
+	                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'image/no_image.png' %}{% endif %}">
+	              </a>
+				      </td>
+				      <td>{{ product.name }}</td>
+				      <td>
+				      	{{ item.quantity }}
+				      </td>
+	          	<td>${{ item.price }}</td>
+	          	<td>${{ item.total_price }}</td>
+				      <td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
+			    	</tr>
+			    {% endwith %}
+		   	{% endfor %}
+		  </tbody>
+		</table>
+	{% else %}
+		<center><h3>No products been exists in the Cart</h3></center>
+	{% endif %}
+{% endblock %}
