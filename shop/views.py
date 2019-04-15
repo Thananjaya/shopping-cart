@@ -12,7 +12,7 @@ def products_index(request, c_slug=None):
 
 def product_detail(request, id, slug):
 	product = get_object_or_404(Product, available= True, id = id, slug = slug)
-	return render(request, 'products/detail.html', {"product": product})
-
-
-
+	image_class = ''
+	if product.image:
+		image_class= "product-detail-image"
+	return render(request, 'products/detail.html', {"product": product, "image": image_class})

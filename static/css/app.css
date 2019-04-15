@@ -1,3 +1,8 @@
 .custom-container {
 	margin: 20px;
 }
+
+.product-detail-image{
+	height: 400px;
+	width: 700px;
+}

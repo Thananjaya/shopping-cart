@@ -7,4 +7,17 @@
 
 {% block content %}
 	<h3>{{product}}</h3>
+	<p class="text-muted">{{ product.category }} <span class="float-right">{{product.price}} INR</span></p>
+	<hr/>
+	<center>
+		<img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'image/no_image.jpg'%} {% endif %}" class="img-thumbnail rounded {{image}}" />
+	</center>
+	<hr/>
+	<div class="jumbotron">
+	  <h3 class="display-4">{{ product }}</h1>
+	  <p class="lead">{{product.description}}</p>
+	  <hr class="my-2">
+	  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+	  <a class="btn btn-secondary btn-md" href="#" role="button">Add to Cart</a>
+	</div>
 {% endblock %}
