@@ -7,7 +7,13 @@
 
 {% block content %}
 	{% if gurney %}
-		<h3> Items in your Gurney</h3>
+		<h3> Items in your Gurney 
+			<span>
+				<a href="{% url 'orders:create_order'%}">
+					<button class="btn btn-md btn-primary float-right"> Checkout </button>
+				</a>
+			</span>
+		</h3>
 		<hr/>
 		<table class="table">
 		  <thead>
@@ -27,7 +33,7 @@
 				      <td>
 				      	<a href="{{ product.get_absolute_url }}">
 	                <img 
-	                	src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'image/no_image.png' %}{% endif %}"
+	                	src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'image/no_image.jpg' %}{% endif %}"
 	                	class="img-thumbnail gurney-image"
                 	/>
 	              </a>

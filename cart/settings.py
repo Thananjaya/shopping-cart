@@ -29,6 +29,8 @@ ALLOWED_HOSTS = []
 
 CART_SESSION_ID = 'gurney'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 # Application definition
 
@@ -42,7 +44,9 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'gurney.apps.GurneyConfig',
     'orders.apps.OrdersConfig',
+    'crispy_forms',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

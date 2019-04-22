@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	Place Order
+{% endblock %}
+
+{% block content %}
+	<h3>Checkout</h3>
+	<div class="row">
+		<div class="col-sm-8">
+			{{ form|crispy }}
+			{% csrf_token %}
+			<button class="btn btn-block btn-success" type="submit">Place Order</button>
+		</div>
+		<div class="col-sm-4">
+			<h3>Your Orders</h3>
+			<div class="jumbotron">
+				<ul class="list-group">
+					{% for item in gurney %}
+						<li class="list-group-item">
+							{{ item.quantity }} - {{ item.product.name }}
+							<span class="float-right">{{ item.total_price }}</span>
+						</li>
+					{% endfor %}
+				</ul>
+				<p class="float-right">Total - {{ gurney.total_price }} INR</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

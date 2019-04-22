@@ -51,7 +51,7 @@ class Gurney(object):
 		self.session.modified = True
 
 	def total_price(self):
-		total_prices = sum(Decimal(item['total_price']) * item['quantity'] for item in self.gurney.values())
+		total_prices = sum(Decimal(item['total_price'])  for item in self.gurney.values())
 		return total_prices
 
 	def remove(self, product):
