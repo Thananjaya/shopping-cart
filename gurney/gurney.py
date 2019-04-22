@@ -6,7 +6,7 @@ class Gurney(object):
 
 	def __init__(self, request):
 		"""
-			Initializing the gurney/cart or checking the gurney existence 
+			Initializing the gurney/cart for checking the gurney existence 
 		"""
 		self.session = request.session
 		gurney  = self.session.get(settings.CART_SESSION_ID)

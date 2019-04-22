@@ -23,5 +23,9 @@
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn my-2 my-sm-0" type="submit">Search</button>
   </form>
-  <i class="fa fa-shopping-cart fa-2x shopping-cart" aria-hidden="true" style="color: rgba(0,0,0,.5); margin-left: 30px;">Cart</i>
+  <a href="{% url 'gurney:gurney_detail' %}">
+    <i class="fa fa-shopping-cart fa-2x shopping-cart" aria-hidden="true" style="color: rgba(0,0,0,.5); margin-left: 30px;">
+      {{gurney|length}}
+    </i>
+  </a>
 </nav>
