@@ -4,12 +4,12 @@
 	Order placed sucessfully
 {% endblock %}
 
-{% blockcontent %}
+{% block content %}
 	<center>
 		<div class="jumbotron">
 			<h3>Thank you !!</h3>
 			<hr/>
-			<p> Your order is been placed successfully </p>
+			<p> Your order is been placed successfully, your order number is {{ order.id }} </p>
 		</div>
 	</center>
 {% endblock %}

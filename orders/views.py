@@ -6,12 +6,13 @@ from gurney.gurney import Gurney
 def create_order(request):
 	gurney = Gurney(request)
 	if request.method == 'POST':
-		order = PlaceOrderForm(request.POST)
-		if form.is_valid():
-			order = form.save()
+		order_form = PlaceOrderForm(request.POST)
+		if order_form.is_valid():
+			order = order_form.save()
 			for item in gurney:
-				OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
+				OrderItems.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
 			gurney.clear()
+
 			return render(request, 'orders/order_placed.html', {'order': order})
 	else: 
 		form = PlaceOrderForm()

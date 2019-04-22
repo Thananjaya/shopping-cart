@@ -9,10 +9,12 @@
 	<h3>Checkout</h3>
 	<div class="row">
 		<div class="col-sm-8">
-			{{ form|crispy }}
-			{% csrf_token %}
-			<button class="btn btn-block btn-success" type="submit">Place Order</button>
-		</div>
+			<form action="." method="post">
+				{{ form|crispy }}
+				{% csrf_token %}
+				<button class="btn btn-block btn-success" type="submit">Place Order</button>
+			</form>
+			</div>
 		<div class="col-sm-4">
 			<h3>Your Orders</h3>
 			<div class="jumbotron">
