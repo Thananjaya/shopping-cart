@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import PlaceOrderForm
 from .models import OrderItems
+from .tasks import order_created
 from gurney.gurney import Gurney
 
 def create_order(request):
@@ -12,9 +13,8 @@ def create_order(request):
 			for item in gurney:
 				OrderItems.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
 			gurney.clear()
-
+			order_created.delay(order.id)
 			return render(request, 'orders/order_placed.html', {'order': order})
 	else: 
 		form = PlaceOrderForm()
 		return render(request, 'orders/place_order.html', {'form': form, 'gurney': gurney})
-
