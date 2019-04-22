@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
     'gurney.apps.GurneyConfig',
+    'orders.apps.OrdersConfig',
 ]
 
 MIDDLEWARE = [
