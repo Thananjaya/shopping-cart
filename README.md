@@ -1,6 +1,6 @@
 ### Shopper - E-commerce application
 
-This applciation is build on django framework, version 2.0.5, along with bootstrap version 4
+This applciation is build on django framework, version 2.0.5, along with bootstrap version 4.
 This application follows single vendor to many custormers relation!!
 
 ***Installation***
