@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'gurney.apps.GurneyConfig',
     'orders.apps.OrdersConfig',
     'crispy_forms',
+    'coupons.apps.CouponsConfig',
 ]
 
 
